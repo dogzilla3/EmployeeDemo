@@ -32,6 +32,7 @@ public partial class App : Application
 				services.AddScoped<MainWindow>();
 				services.AddScoped<MainWindowViewModel>();
 				services.AddFormFactory<NewEmployeeForm>();
+				services.AddTransient<NewEmployeeFormViewModel>();
 				services.AddTransient<IEmployeeDataAccess, EmployeeDataAccess>();
 				services.AddTransient<ISupervisorDataAccess, SupervisorDataAccess>();
 
