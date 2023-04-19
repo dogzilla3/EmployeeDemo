@@ -5,6 +5,7 @@ using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
 using EmployeeDemo.Views;
 using System.Collections.ObjectModel;
+using System.Security.RightsManagement;
 using System.Windows.Input;
 
 namespace EmployeeDemo.ViewModels;
@@ -19,18 +20,24 @@ public partial class MainWindowViewModel : ObservableObject
 
 	public ICommand ClickNewEmployeeButton { get; }
 
+	public ICommand ClickNewSupervisorButton { get; }
+
 	public readonly IEmployeeDataAccess _employeeDataAcess;
 	public readonly ISupervisorDataAccess _supervisorDataAcess;
 	private readonly IAbstractFormFactory<NewEmployeeForm> _newEmployeeFormFactory;
+    private readonly IAbstractFormFactory<NewSupervisorForm> _newSupervisorFormFactory;
 
-	public MainWindowViewModel(
+    public MainWindowViewModel(
 		ISupervisorDataAccess supervisorDataAcess,
 		IEmployeeDataAccess employeeDataAcess,
-		IAbstractFormFactory<NewEmployeeForm> newEmployeeFormFactory)
+		IAbstractFormFactory<NewEmployeeForm> newEmployeeFormFactory,
+        IAbstractFormFactory<NewSupervisorForm> newSupervisorFormFactory)
 	{
 		_newEmployeeFormFactory = newEmployeeFormFactory;
-		ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
-		_employeeDataAcess = employeeDataAcess;
+		_newSupervisorFormFactory = newSupervisorFormFactory;
+        ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
+        ClickNewSupervisorButton = new RelayCommand(OnClickNewSupervisor, CanClickNewSupervisor);
+        _employeeDataAcess = employeeDataAcess;
 		_supervisorDataAcess = supervisorDataAcess;
 
 		foreach (Supervisor supervisor in _supervisorDataAcess.GetAll())
@@ -48,9 +55,18 @@ public partial class MainWindowViewModel : ObservableObject
 	{
 		return true;
 	}
+    private bool CanClickNewSupervisor()
+    {
+        return true;
+    }
 
-	private void OnClickNewEmployee()
+    private void OnClickNewEmployee()
+    {
+        _newEmployeeFormFactory.Create().Show();
+    }
+
+    private void OnClickNewSupervisor()
 	{
-		_newEmployeeFormFactory.Create().Show();
+        _newSupervisorFormFactory.Create().Show();
 	}
 }
