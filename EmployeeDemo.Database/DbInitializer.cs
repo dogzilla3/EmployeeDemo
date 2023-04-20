@@ -1,8 +1,7 @@
 ﻿using EmployeeDemo.Database.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Windows.Media;
+
 
 namespace EmployeeDemo.Database;
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeDemo.Views"
         mc:Ignorable="d"
-        Title="NewSupervisorForm" Height="450" Width="800">
+        Title="NewSupervisorForm" Height="200" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -16,16 +16,47 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <Label>First Name:</Label>
-        <TextBox Grid.Column="1" Margin="0,0,0,10" />
+        <TextBox Grid.Column="1" Margin="0,5,0,10" Text="{Binding FirstName}"/>
         <Label Grid.Row="1">Middle Name:</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,10"  Text="{Binding MiddleName}"/>
         <Label Grid.Row="2">Last Name:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,10" Text="{Binding LastName}"/>
         <Label Grid.Row="3">Birth Date:</Label>
-        <DatePicker Grid.Row="3" Grid.Column="1" Name="datePicker1" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" />
+        <DatePicker 
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Name="datePicker1" 
+            Height="25" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="115"  
+            Text="{Binding LastName}"/>
+
+        <WrapPanel Grid.Row="4" Grid.Column="1" Margin="5,0,5,0" HorizontalAlignment="Right">
+            <Button 
+            Grid.Row="4" 
+            Grid.Column="1" 
+            x:Name="btnCreateNewEmployee" 
+            HorizontalAlignment="Right" 
+            Margin="5,5,5,5" 
+            Command="{Binding Path=ClickCreateButton}">
+                Create
+            </Button>
+
+            <Button 
+            Grid.Row="4" 
+            Grid.Column="1" 
+            x:Name="btnCancel" 
+            HorizontalAlignment="Right" 
+            Margin="5,5,5,5" 
+            Command="{Binding Path=ClickCancelButton}">
+                Cancel
+            </Button>
+        </WrapPanel>
         <!--<TextBox Grid.Row="3" Grid.Column="1" AcceptsReturn="True" />-->
     </Grid>
 </Window>

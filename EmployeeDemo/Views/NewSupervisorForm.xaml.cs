@@ -1,4 +1,5 @@
-﻿using EmployeeDemo.ViewModels;
+﻿using EmployeeDemo.HelperInterfaces;
+using EmployeeDemo.ViewModels;
 using System.Windows;
 
 
@@ -15,5 +16,17 @@ public partial class NewSupervisorForm : Window
     {
 		DataContext = ViewModel = viewModel;
 		InitializeComponent();
+		Loaded += NewSupervisorForm_Loaded;
+	}
+
+	private void NewSupervisorForm_Loaded(object sender, RoutedEventArgs e)
+	{
+		if (DataContext is ICloseable viewModel)
+		{
+			viewModel.Close += () =>
+			{
+				this.Close();
+			};
+		}
 	}
 }

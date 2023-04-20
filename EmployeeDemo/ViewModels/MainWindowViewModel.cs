@@ -5,7 +5,6 @@ using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
 using EmployeeDemo.Views;
 using System.Collections.ObjectModel;
-using System.Security.RightsManagement;
 using System.Windows.Input;
 
 namespace EmployeeDemo.ViewModels;
@@ -23,7 +22,8 @@ public partial class MainWindowViewModel : ObservableObject
 	public ICommand ClickNewSupervisorButton { get; }
 
 	public readonly IEmployeeDataAccess _employeeDataAcess;
-	public readonly ISupervisorDataAccess _supervisorDataAcess;
+	public readonly ISupervisorDataAccess _supervisorsDataAcess;
+
 	private readonly IAbstractFormFactory<NewEmployeeForm> _newEmployeeFormFactory;
     private readonly IAbstractFormFactory<NewSupervisorForm> _newSupervisorFormFactory;
 
@@ -33,22 +33,22 @@ public partial class MainWindowViewModel : ObservableObject
 		IAbstractFormFactory<NewEmployeeForm> newEmployeeFormFactory,
         IAbstractFormFactory<NewSupervisorForm> newSupervisorFormFactory)
 	{
+		ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
+		ClickNewSupervisorButton = new RelayCommand(OnClickNewSupervisor, CanClickNewSupervisor);
+
 		_newEmployeeFormFactory = newEmployeeFormFactory;
 		_newSupervisorFormFactory = newSupervisorFormFactory;
-        ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
-        ClickNewSupervisorButton = new RelayCommand(OnClickNewSupervisor, CanClickNewSupervisor);
+        
         _employeeDataAcess = employeeDataAcess;
-		_supervisorDataAcess = supervisorDataAcess;
+		_supervisorsDataAcess = supervisorDataAcess;
 
-		foreach (Supervisor supervisor in _supervisorDataAcess.GetAll())
+		foreach (Supervisor supervisor in _supervisorsDataAcess.GetAll())
 		{
 			supervisors.Add(supervisor);
 		}
 
-		foreach (Employee employee in _employeeDataAcess.GetAll())
-		{
-			employees.Add(employee);
-		}
+		FetchEmployees();
+		FetchSupervisors();
 	}
 
 	private bool CanClickNewEmployee()
@@ -63,10 +63,28 @@ public partial class MainWindowViewModel : ObservableObject
     private void OnClickNewEmployee()
     {
         _newEmployeeFormFactory.Create().Show();
-    }
+	}
 
     private void OnClickNewSupervisor()
 	{
         _newSupervisorFormFactory.Create().Show();
+	}
+
+	private void FetchEmployees()
+	{
+		Employees.Clear();
+		foreach (Employee employee in _employeeDataAcess.GetAll())
+		{
+			Employees.Add(employee);
+		}
+	}
+
+	private void FetchSupervisors()
+	{
+		Supervisors.Clear();
+		foreach (Supervisor super in _supervisorsDataAcess.GetAll())
+		{
+			Supervisors.Add(super);
+		}
 	}
 }

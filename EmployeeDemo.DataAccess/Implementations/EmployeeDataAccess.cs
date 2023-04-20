@@ -2,13 +2,12 @@
 using EmployeeDemo.Database;
 using EmployeeDemo.Database.Models;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+
 
 namespace EmployeeDemo.DataAccess.Implementations;
 
 public class EmployeeDataAccess : IEmployeeDataAccess
-
 {
     public EmployeeDemoDbContext dbContext { get; set; }
 
@@ -21,4 +20,10 @@ public class EmployeeDataAccess : IEmployeeDataAccess
     {
         return dbContext.Employees.ToList();
     }
+
+	public void Create(Employee employee)
+	{
+		dbContext.Employees.Add(employee);
+        dbContext.SaveChanges();
+	}
 }

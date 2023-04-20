@@ -1,6 +1,7 @@
 ﻿using EmployeeDemo.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace EmployeeDemo.Database;
 
 public class EmployeeDemoDbContext : DbContext

@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace EmployeeDemo.Database.Models;
 
 public class Supervisor
