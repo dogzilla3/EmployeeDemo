@@ -1,15 +1,20 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using EmployeeDemo.Core.StartupHelpers;
 using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
+using EmployeeDemo.Messages;
 using EmployeeDemo.Views;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace EmployeeDemo.ViewModels;
 
-public partial class MainWindowViewModel : ObservableObject
+public partial class MainWindowViewModel : 
+	ObservableObject, 
+	IRecipient<UpdateEmployeeTableMessage>,
+	IRecipient<UpdateSupervisorTableMessage>
 {
 	[ObservableProperty]
 	public ObservableCollection<Supervisor> supervisors = new();
@@ -42,10 +47,8 @@ public partial class MainWindowViewModel : ObservableObject
         _employeeDataAcess = employeeDataAcess;
 		_supervisorsDataAcess = supervisorDataAcess;
 
-		foreach (Supervisor supervisor in _supervisorsDataAcess.GetAll())
-		{
-			supervisors.Add(supervisor);
-		}
+		WeakReferenceMessenger.Default.Register<UpdateEmployeeTableMessage>(this);
+		WeakReferenceMessenger.Default.Register<UpdateSupervisorTableMessage>(this);
 
 		FetchEmployees();
 		FetchSupervisors();
@@ -86,5 +89,15 @@ public partial class MainWindowViewModel : ObservableObject
 		{
 			Supervisors.Add(super);
 		}
+	}
+
+	public void Receive(UpdateEmployeeTableMessage message)
+	{
+		FetchEmployees();
+	}
+
+	public void Receive(UpdateSupervisorTableMessage message)
+	{
+		FetchSupervisors();
 	}
 }

@@ -6,6 +6,8 @@ using System;
 using EmployeeDemo.HelperInterfaces;
 using EmployeeDemo.DataAccess.Implementations;
 using EmployeeDemo.Database.Models;
+using CommunityToolkit.Mvvm.Messaging;
+using EmployeeDemo.Messages;
 
 namespace EmployeeDemo.ViewModels;
 
@@ -57,6 +59,7 @@ public partial class NewSupervisorFormViewModel : ObservableObject, ICloseable
 		};
 
 		_supervisorDataAcess.Create(newSupervisor);
+		WeakReferenceMessenger.Default.Send(new UpdateSupervisorTableMessage(newSupervisor));
 		CloseWindow();
 	}
 

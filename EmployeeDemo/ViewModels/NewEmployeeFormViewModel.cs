@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
 using EmployeeDemo.HelperInterfaces;
+using EmployeeDemo.Messages;
 using System;
 using System.Windows.Input;
 
@@ -57,6 +59,8 @@ public partial class NewEmployeeFormViewModel : ObservableObject, ICloseable
 		};
 
 		_employeeDataAcess.Create(newEmployee);
+		WeakReferenceMessenger.Default.Send(new UpdateEmployeeTableMessage(newEmployee));
+		
 		CloseWindow();
 	}
 
