@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDemo", "EmployeeDemo\EmployeeDemo.csproj", "{A57E1EFA-C54A-49E2-B1E6-01A6A84C5AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeDemo", "EmployeeDemo\EmployeeDemo.csproj", "{A57E1EFA-C54A-49E2-B1E6-01A6A84C5AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDemo.DataAccess", "EmployeeDemo.DataAccess\EmployeeDemo.DataAccess.csproj", "{EA5B7A1A-ECF3-42EF-B7C3-0894096F2831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeDemo.DataAccess", "EmployeeDemo.DataAccess\EmployeeDemo.DataAccess.csproj", "{EA5B7A1A-ECF3-42EF-B7C3-0894096F2831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDemo.Core", "EmployeeDemo.Core\EmployeeDemo.Core.csproj", "{94ACD4E9-6FD9-4DEE-A69E-DA289E2651D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeDemo.Core", "EmployeeDemo.Core\EmployeeDemo.Core.csproj", "{94ACD4E9-6FD9-4DEE-A69E-DA289E2651D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDemo.Database", "EmployeeDemo.Database\EmployeeDemo.Database.csproj", "{CC133B7C-65DA-4DA1-8A28-8575B7CBD93B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeDemo.Database", "EmployeeDemo.Database\EmployeeDemo.Database.csproj", "{CC133B7C-65DA-4DA1-8A28-8575B7CBD93B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeDemo.Test", "EmployeeDemo.Test\EmployeeDemo.Test.csproj", "{A0EAE381-660C-47CB-AB66-E66BFAB16062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeDemo.Test", "EmployeeDemo.Test\EmployeeDemo.Test.csproj", "{A0EAE381-660C-47CB-AB66-E66BFAB16062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormCodeGenerator", "FormCodeGenerator\FormCodeGenerator.csproj", "{C02C5171-B8FE-479C-B81A-001BA5F2287D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A0EAE381-660C-47CB-AB66-E66BFAB16062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0EAE381-660C-47CB-AB66-E66BFAB16062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0EAE381-660C-47CB-AB66-E66BFAB16062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02C5171-B8FE-479C-B81A-001BA5F2287D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02C5171-B8FE-479C-B81A-001BA5F2287D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02C5171-B8FE-479C-B81A-001BA5F2287D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02C5171-B8FE-479C-B81A-001BA5F2287D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
