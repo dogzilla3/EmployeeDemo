@@ -24,6 +24,7 @@
         <ListView 
             Grid.Row="1" Grid.Column="0"
             ItemsSource="{Binding Supervisors, UpdateSourceTrigger=PropertyChanged}" 
+            SelectedItem="{Binding selectedSupervisor}"
             ScrollViewer.CanContentScroll="True"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>

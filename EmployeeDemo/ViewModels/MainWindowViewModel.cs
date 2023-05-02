@@ -6,6 +6,7 @@ using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
 using EmployeeDemo.Messages;
 using EmployeeDemo.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -17,6 +18,12 @@ public partial class MainWindowViewModel :
 	IRecipient<UpdateSupervisorTableMessage>
 {
 	[ObservableProperty]
+	public Supervisor selectedSupervisor;
+
+	[ObservableProperty]
+	public Employee selectedEmployee;
+
+    [ObservableProperty]
 	public ObservableCollection<Supervisor> supervisors = new();
 
 	[ObservableProperty]
@@ -100,4 +107,9 @@ public partial class MainWindowViewModel :
 	{
 		FetchSupervisors();
 	}
+
+    partial void OnSelectedSupervisorChanging(Supervisor supervisor)
+    {
+        Console.WriteLine($"Name is about to change to {supervisor.LastName}");
+    }
 }
