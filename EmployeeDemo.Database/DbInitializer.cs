@@ -76,7 +76,8 @@ public class DbInitializer
 				FirstName = "Dax",
 				MiddleName = "Kipton",
 				LastName = "Mcclellan",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 1
 			},
 			new Employee
 			{
@@ -84,7 +85,8 @@ public class DbInitializer
 				FirstName = "Carter",
 				MiddleName = "Konnor",
 				LastName = "Merritt",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 1
 			},
 			new Employee
 			{	
@@ -92,7 +94,8 @@ public class DbInitializer
 				FirstName = "Finnian",
 				MiddleName = "Gianluca",
 				LastName = "Raymond",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 1
 			},
 			new Employee
 			{
@@ -100,7 +103,8 @@ public class DbInitializer
 				FirstName = "Sara",
 				MiddleName = "Leilany",
 				LastName = "Stanton",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 1
 			},
 			new Employee
 			{
@@ -108,7 +112,8 @@ public class DbInitializer
 				FirstName = "Darion",
 				MiddleName = "Zavion",
 				LastName = "Fournier",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 1
 			},
 			new Employee
 			{
@@ -116,7 +121,8 @@ public class DbInitializer
 				FirstName = "Charlee",
 				MiddleName = "Leilany",
 				LastName = "Lake",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 2
 			},
 			new Employee
 			{
@@ -124,7 +130,8 @@ public class DbInitializer
 				FirstName = "Dario",
 				MiddleName = "Reese",
 				LastName = "Durham",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 2
 			},
 			new Employee
 			{
@@ -132,7 +139,8 @@ public class DbInitializer
 				FirstName = "Kyron",
 				MiddleName = "Sterling",
 				LastName = "Messer",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 2
 			},
 			new Employee
 			{
@@ -140,7 +148,8 @@ public class DbInitializer
 				FirstName = "Alek",
 				MiddleName = "Jakoby",
 				LastName = "White",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 2
 			},
 			new Employee
 			{
@@ -148,7 +157,8 @@ public class DbInitializer
 				FirstName = "Kenna",
 				MiddleName = "Janely",
 				LastName = "Mccarty",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 2
 			},
 			new Employee
 			{
@@ -156,7 +166,8 @@ public class DbInitializer
 				FirstName = "Kassandra",
 				MiddleName = "Dulce",
 				LastName = "Drake",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 3
 			},
 			new Employee
 			{
@@ -164,7 +175,8 @@ public class DbInitializer
 				FirstName = "Jackson",
 				MiddleName = "Nova",
 				LastName = "Salgado",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 3
 			},
 			new Employee
 			{
@@ -172,7 +184,8 @@ public class DbInitializer
 				FirstName = "Hasan",
 				MiddleName = "Elias",
 				LastName = "Meyer",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 3
 			},
 			new Employee
 			{
@@ -180,7 +193,8 @@ public class DbInitializer
 				FirstName = "Rosemary",
 				MiddleName = "Camryn",
 				LastName = "Yeager",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 3
 			},
 			new Employee
 			{
@@ -188,7 +202,8 @@ public class DbInitializer
 				FirstName = "Dominic",
 				MiddleName = "Gilberto",
 				LastName = "Mccarty",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 3
 			},
 			new Employee
 			{
@@ -196,7 +211,8 @@ public class DbInitializer
 				FirstName = "Katarina",
 				MiddleName = "Dalia",
 				LastName = "Crosby",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 4
 			},
 			new Employee
 			{
@@ -204,7 +220,8 @@ public class DbInitializer
 				FirstName = "Wren",
 				MiddleName = "Linda",
 				LastName = "Parsons",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 4
 			},
 			new Employee
 			{
@@ -212,7 +229,8 @@ public class DbInitializer
 				FirstName = "Julie",
 				MiddleName = "Ansley",
 				LastName = "Preston",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 4
 			},
 			new Employee
 			{
@@ -220,7 +238,8 @@ public class DbInitializer
 				FirstName = "Tyce",
 				MiddleName = "Zaine",
 				LastName = "Hackett",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 4
 			},
 			new Employee
 			{
@@ -228,7 +247,8 @@ public class DbInitializer
 				FirstName = "Kaiden",
 				MiddleName = "Josiah",
 				LastName = "Simpson",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 4
 			},
 			new Employee
 			{
@@ -236,7 +256,8 @@ public class DbInitializer
 				FirstName = "Trae",
 				MiddleName = "Elliott",
 				LastName = "Lehman",
-				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local)
+				DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+				SupervisorId = 5
 			}
 		);
 	}

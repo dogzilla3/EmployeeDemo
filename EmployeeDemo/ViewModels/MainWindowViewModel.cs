@@ -8,6 +8,7 @@ using EmployeeDemo.Messages;
 using EmployeeDemo.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace EmployeeDemo.ViewModels;
@@ -80,9 +81,21 @@ public partial class MainWindowViewModel :
         _newSupervisorFormFactory.Create().Show();
 	}
 
-	private void FetchEmployees()
+	private void FetchEmployees(int? supervisorId)
 	{
 		Employees.Clear();
+		foreach (Employee employee in _employeeDataAcess.GetAll())
+		{
+			Trace.WriteLine(SelectedSupervisor.Id);
+			if(SelectedSupervisor != null && SelectedSupervisor.Id == employee.SupervisorId.Value)
+			{
+				Employees.Add(employee);
+			}
+		}
+	}
+
+	private void FetchEmployees()
+	{
 		foreach (Employee employee in _employeeDataAcess.GetAll())
 		{
 			Employees.Add(employee);
@@ -100,7 +113,7 @@ public partial class MainWindowViewModel :
 
 	public void Receive(UpdateEmployeeTableMessage message)
 	{
-		FetchEmployees();
+		FetchEmployees(null);
 	}
 
 	public void Receive(UpdateSupervisorTableMessage message)
@@ -108,8 +121,8 @@ public partial class MainWindowViewModel :
 		FetchSupervisors();
 	}
 
-    partial void OnSelectedSupervisorChanging(Supervisor supervisor)
+    partial void OnSelectedSupervisorChanged(Supervisor supervisor)
     {
-        Console.WriteLine($"Name is about to change to {supervisor.LastName}");
+		FetchEmployees(supervisor.Id);
     }
 }

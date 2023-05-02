@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeDemo.Database.Migrations
 {
     [DbContext(typeof(EmployeeDemoDbContext))]
-    [Migration("20230419040427_Add Supervisors Table")]
-    partial class AddSupervisorsTable
+    [Migration("20230502164752_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,13 @@ namespace EmployeeDemo.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SupervisorId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SupervisorId");
 
                     b.ToTable("Employees");
 
@@ -56,170 +62,191 @@ namespace EmployeeDemo.Database.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4061),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Dax",
                             LastName = "Mcclellan",
-                            MiddleName = "Kipton"
+                            MiddleName = "Kipton",
+                            SupervisorId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4116),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Carter",
                             LastName = "Merritt",
-                            MiddleName = "Konnor"
+                            MiddleName = "Konnor",
+                            SupervisorId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4119),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Finnian",
                             LastName = "Raymond",
-                            MiddleName = "Gianluca"
+                            MiddleName = "Gianluca",
+                            SupervisorId = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4121),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Sara",
                             LastName = "Stanton",
-                            MiddleName = "Leilany"
+                            MiddleName = "Leilany",
+                            SupervisorId = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4124),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Darion",
                             LastName = "Fournier",
-                            MiddleName = "Zavion"
+                            MiddleName = "Zavion",
+                            SupervisorId = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4127),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Charlee",
                             LastName = "Lake",
-                            MiddleName = "Leilany"
+                            MiddleName = "Leilany",
+                            SupervisorId = 2
                         },
                         new
                         {
                             Id = 7,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4129),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Dario",
                             LastName = "Durham",
-                            MiddleName = "Reese"
+                            MiddleName = "Reese",
+                            SupervisorId = 2
                         },
                         new
                         {
                             Id = 8,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4132),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Kyron",
                             LastName = "Messer",
-                            MiddleName = "Sterling"
+                            MiddleName = "Sterling",
+                            SupervisorId = 2
                         },
                         new
                         {
                             Id = 9,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4135),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Alek",
                             LastName = "White",
-                            MiddleName = "Jakoby"
+                            MiddleName = "Jakoby",
+                            SupervisorId = 2
                         },
                         new
                         {
                             Id = 10,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4138),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Kenna",
                             LastName = "Mccarty",
-                            MiddleName = "Janely"
+                            MiddleName = "Janely",
+                            SupervisorId = 2
                         },
                         new
                         {
                             Id = 11,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4140),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Kassandra",
                             LastName = "Drake",
-                            MiddleName = "Dulce"
+                            MiddleName = "Dulce",
+                            SupervisorId = 3
                         },
                         new
                         {
                             Id = 12,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4143),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Jackson",
                             LastName = "Salgado",
-                            MiddleName = "Nova"
+                            MiddleName = "Nova",
+                            SupervisorId = 3
                         },
                         new
                         {
                             Id = 13,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4145),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Hasan",
                             LastName = "Meyer",
-                            MiddleName = "Elias"
+                            MiddleName = "Elias",
+                            SupervisorId = 3
                         },
                         new
                         {
                             Id = 14,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4148),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Rosemary",
                             LastName = "Yeager",
-                            MiddleName = "Camryn"
+                            MiddleName = "Camryn",
+                            SupervisorId = 3
                         },
                         new
                         {
                             Id = 15,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4151),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Dominic",
                             LastName = "Mccarty",
-                            MiddleName = "Gilberto"
+                            MiddleName = "Gilberto",
+                            SupervisorId = 3
                         },
                         new
                         {
                             Id = 16,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4153),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Katarina",
                             LastName = "Crosby",
-                            MiddleName = "Dalia"
+                            MiddleName = "Dalia",
+                            SupervisorId = 4
                         },
                         new
                         {
                             Id = 17,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4156),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Wren",
                             LastName = "Parsons",
-                            MiddleName = "Linda"
+                            MiddleName = "Linda",
+                            SupervisorId = 4
                         },
                         new
                         {
                             Id = 18,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4158),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Julie",
                             LastName = "Preston",
-                            MiddleName = "Ansley"
+                            MiddleName = "Ansley",
+                            SupervisorId = 4
                         },
                         new
                         {
                             Id = 19,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4161),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Tyce",
                             LastName = "Hackett",
-                            MiddleName = "Zaine"
+                            MiddleName = "Zaine",
+                            SupervisorId = 4
                         },
                         new
                         {
                             Id = 20,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4164),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Kaiden",
                             LastName = "Simpson",
-                            MiddleName = "Josiah"
+                            MiddleName = "Josiah",
+                            SupervisorId = 4
                         },
                         new
                         {
                             Id = 21,
-                            DateOfBirth = new DateTime(2023, 4, 18, 23, 4, 27, 40, DateTimeKind.Local).AddTicks(4167),
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
                             FirstName = "Trae",
                             LastName = "Lehman",
-                            MiddleName = "Elliott"
+                            MiddleName = "Elliott",
+                            SupervisorId = 5
                         });
                 });
 
@@ -249,6 +276,64 @@ namespace EmployeeDemo.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Supervisors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+                            FirstName = "Jameson",
+                            LastName = "Bruce",
+                            MiddleName = "Bear"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+                            FirstName = "Sammie",
+                            LastName = "Kaylee",
+                            MiddleName = "Catherin"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+                            FirstName = "Vinal",
+                            LastName = "Gabe",
+                            MiddleName = "Jerrod"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+                            FirstName = "Carissa",
+                            LastName = "Austen",
+                            MiddleName = "Novalee"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateOfBirth = new DateTime(2023, 4, 19, 9, 45, 52, 530, DateTimeKind.Local),
+                            FirstName = "Brady",
+                            LastName = "Micah",
+                            MiddleName = "Fay"
+                        });
+                });
+
+            modelBuilder.Entity("EmployeeDemo.Database.Models.Employee", b =>
+                {
+                    b.HasOne("EmployeeDemo.Database.Models.Supervisor", "Supervisor")
+                        .WithMany("Employees")
+                        .HasForeignKey("SupervisorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Supervisor");
+                });
+
+            modelBuilder.Entity("EmployeeDemo.Database.Models.Supervisor", b =>
+                {
+                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }
