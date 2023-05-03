@@ -3,62 +3,101 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:behaviors="clr-namespace:EmployeeDemo.Behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900"
+        MinHeight="600" MinWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel 
-            behaviors:ResponsiveBehavior.IsResponsive="True"
-            behaviors:ResponsiveBehavior.HorizontalBreakpoint="500" 
-            Grid.Row="0" Grid.Column="0" 
-            Margin="5,0,5,0">
-            <DockPanel Margin="0,5,0,0">
-                <Label Margin="0,5,5,0">Supervisors</Label>
-                <Button x:Name="btnCreateNew" HorizontalAlignment="Right" Margin="5,5,5,5" Command="{Binding Path=ClickNewSupervisorButton}">Create New Supervisor</Button>
-            </DockPanel>
-        </StackPanel>
         
-        <ListView 
-            Grid.Row="1" Grid.Column="0"
-            ItemsSource="{Binding Supervisors, UpdateSourceTrigger=PropertyChanged}" 
-            SelectedItem="{Binding SelectedSupervisor}"
-            ScrollViewer.CanContentScroll="True"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Label Margin="5,5,5,5" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            Welcome to a mediocre demo app
+        </Label>
+        
+        <DockPanel Margin="5,5,5,5" Grid.Row="1">
+            <Label Margin="5,5,5,5" DockPanel.Dock="Left">
+                Supervisors
+            </Label>
+            <Button x:Name="btnCreateNew"  DockPanel.Dock="Right"
+                    HorizontalAlignment="Right" 
+                    Margin="5,5,5,5" 
+                    Command="{Binding ClickNewSupervisorCommand}">
+                Create New Supervisor
+            </Button>
+        </DockPanel>
+
+        <ListView Grid.Row="2" Margin="10,10,5,10" MaxHeight="400"
+                  ItemsSource="{Binding Supervisors}" 
+                  SelectedItem="{Binding SelectedSupervisor}"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding DateOfBirth}" Header="DOB" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding DateOfBirth}" Header="DOB" Width="Auto"/>
+                    <GridViewColumn Header="Actions" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="5,0,5,0">
+                                    <Button x:Name="btnDemote" 
+                                            HorizontalAlignment="Right" 
+                                            Margin="5,0,5,0" 
+                                            Command="{Binding DataContext.ClickDemoteSupervisorCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                            CommandParameter="{Binding Id}">        
+                                        Demote
+                                    </Button>
+                                    <Button x:Name="btnFireSupervisor" 
+                                            HorizontalAlignment="Right" 
+                                            Margin="5,0,5,0" 
+                                            Command="{Binding ClickNewEmployeeCommand}">
+                                        Fire
+                                    </Button>
+                                </DockPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,0,5,0">
-            <DockPanel Margin="0,5,0,0">
-                <Label Margin="0,5,5,0">Employees</Label>
-                <Button x:Name="btnCreateNewEmployee" HorizontalAlignment="Right" Margin="5,5,5,5" Command="{Binding Path=ClickNewEmployeeButton}">Create New Employee</Button>
-            </DockPanel>
-        </StackPanel>
 
-        <ListView Grid.Row="1" Grid.Column="1"
-            ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" 
-            ScrollViewer.CanContentScroll="True"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
-        <ListView.View>
-            <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="100"/>
-                <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="100"/>
-                <GridViewColumn DisplayMemberBinding="{Binding DateOfBirth}" Header="DOB" Width="100"/>
-            </GridView>
-        </ListView.View>
-    </ListView>
+        <DockPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
+            <Label Margin="5,5,5,5">Employees</Label>
+            <Button x:Name="btnCreateNewEmployee" 
+                    HorizontalAlignment="Right" 
+                    Margin="5,5,5,5" 
+                    Command="{Binding ClickNewEmployeeCommand}">
+                Create New Employee
+            </Button>
+        </DockPanel>
+
+        <ListView Grid.Row="2" Grid.Column="1" Margin="10,10,5,10" MaxHeight="400"
+                  ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" 
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding DateOfBirth}" Header="DOB" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <DockPanel Margin="5,5,5,5" Grid.Row="3" Grid.ColumnSpan="2">
+        </DockPanel>
+
+        <Label Margin="5,5,5,5" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            Welcome to a mediocre demo app
+        </Label>
     </Grid>
 </Window>

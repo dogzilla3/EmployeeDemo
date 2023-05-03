@@ -6,7 +6,6 @@ using EmployeeDemo.DataAccess.Interfaces;
 using EmployeeDemo.Database.Models;
 using EmployeeDemo.Messages;
 using EmployeeDemo.Views;
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -30,9 +29,12 @@ public partial class MainWindowViewModel :
 	[ObservableProperty]
 	public ObservableCollection<Employee> employees = new();
 
-	public ICommand ClickNewEmployeeButton { get; }
-
-	public ICommand ClickNewSupervisorButton { get; }
+	//public ICommand ClickNewEmployeeButton { get; }
+	//public ICommand ClickNewSupervisorButton { get; }
+	//public ICommand ClickFireSupervisorButton { get; }
+	//public ICommand ClickDemoteSupervisorButton { get; }
+	//public ICommand ClickFireEmployeeButton { get; }
+	//public ICommand ClickPromoteEmployeeButton { get; }
 
 	public readonly IEmployeeDataAccess _employeeDataAcess;
 	public readonly ISupervisorDataAccess _supervisorsDataAcess;
@@ -46,8 +48,12 @@ public partial class MainWindowViewModel :
 		IAbstractFormFactory<NewEmployeeForm> newEmployeeFormFactory,
         IAbstractFormFactory<NewSupervisorForm> newSupervisorFormFactory)
 	{
-		ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
-		ClickNewSupervisorButton = new RelayCommand(OnClickNewSupervisor, CanClickNewSupervisor);
+		//ClickNewEmployeeButton = new RelayCommand(OnClickNewEmployee, CanClickNewEmployee);
+		//ClickNewSupervisorButton = new RelayCommand(OnClickNewSupervisor, CanClickNewSupervisor);
+		//ClickFireSupervisorButton = new RelayCommand(OnClickFireSupervisor, CanClickFireSupervisor);
+		//ClickDemoteSupervisorButton = new RelayCommand(OnClickDemoteSupervisor, CanClickDemoteSupervisor);
+		//ClickFireEmployeeButton = new RelayCommand(OnClickFireEmployee, CanClickFireEmployee);
+		//ClickPromoteEmployeeButton = new RelayCommand(OnClickPromoteEmployee, CanClickPromoteEmployee);
 
 		_newEmployeeFormFactory = newEmployeeFormFactory;
 		_newSupervisorFormFactory = newSupervisorFormFactory;
@@ -66,19 +72,68 @@ public partial class MainWindowViewModel :
 	{
 		return true;
 	}
+
     private bool CanClickNewSupervisor()
     {
         return true;
     }
 
-    private void OnClickNewEmployee()
-    {
-        _newEmployeeFormFactory.Create().Show();
+	private bool CanClickFireSupervisor()
+	{
+		return true;
 	}
 
-    private void OnClickNewSupervisor()
+	private bool CanClickFireEmployee()
 	{
-        _newSupervisorFormFactory.Create().Show();
+		return true;
+	}
+
+	private bool CanClickPromoteEmployee()
+	{
+		return true;
+	}
+
+	private bool CanClickDemoteSupervisor()
+	{
+		return true;
+	}
+
+	[RelayCommand]
+	private void ClickNewEmployee()
+    {
+		Trace.WriteLine("Test");
+		_newEmployeeFormFactory.Create().Show();
+	}
+
+	[RelayCommand]
+	private void ClickNewSupervisor()
+	{
+		Trace.WriteLine("Test");
+		_newSupervisorFormFactory.Create().Show();
+	}
+
+	[RelayCommand]
+	private void ClickFireSupervisor(int id)
+	{
+		//this.Clic
+	}
+
+	[RelayCommand]
+	private void ClickDemoteSupervisor(int id)
+	{
+		Trace.WriteLine("Demoting Supervisor: " + id);
+	}
+
+	[RelayCommand]
+	private void ClickFireEmployee(int id)
+	{
+		
+	}
+
+	[RelayCommand]
+	private void ClickPromoteEmployee(int id)
+	{
+		
 	}
 
 	private void FetchEmployees(int? supervisorId)
@@ -86,7 +141,6 @@ public partial class MainWindowViewModel :
 		Employees.Clear();
 		foreach (Employee employee in _employeeDataAcess.GetAll())
 		{
-			Trace.WriteLine(SelectedSupervisor.Id);
 			if(SelectedSupervisor != null && SelectedSupervisor.Id == employee.SupervisorId.Value)
 			{
 				Employees.Add(employee);
